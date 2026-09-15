@@ -1,0 +1,10 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "functions": {
+      "backend/main.py": {
+        "includeFiles": [
+          "outputs/house_price_model.joblib"
+        ]
+      }
+    }
+  }
