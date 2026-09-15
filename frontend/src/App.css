@@ -419,6 +419,60 @@ a {
   color: #b1b3b8;
 }
 
+/* Compact guidance and clear field-level validation */
+.field-help {
+  margin: 6px 0 0;
+  color: #8b9099;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.field-error .field-input input {
+  border-color: #b85c55;
+  box-shadow: 0 0 0 3px rgba(184, 92, 85, 0.08);
+}
+
+.field-error .field-input input:focus {
+  border-color: #a94e48;
+  box-shadow: 0 0 0 3px rgba(184, 92, 85, 0.12);
+}
+
+.field-error label {
+  color: #9f4f49;
+}
+
+.field-error-message {
+  margin: 5px 0 0;
+  color: #a94e48;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.form-error-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 24px;
+  padding: 12px 14px;
+  border: 1px solid rgba(184, 92, 85, 0.25);
+  background: rgba(184, 92, 85, 0.055);
+  color: #9f4f49;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.form-error-box strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-error-box span {
+  color: #777e89;
+  font-size: 11px;
+}
+
 .field-input span {
   position: absolute;
   top: 50%;
@@ -1025,6 +1079,11 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .field-help,
+  .field-error-message {
+    font-size: 11px;
+  }
+
   .form-footer {
     flex-direction: column-reverse;
     align-items: stretch;
@@ -1073,4 +1132,4 @@ a {
     align-items: flex-start;
     flex-direction: column;
   }
-}
+} 

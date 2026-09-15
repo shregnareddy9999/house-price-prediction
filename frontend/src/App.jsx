@@ -266,6 +266,21 @@ function App() {
     if (Object.keys(validationErrors).length > 0) {
       setFieldErrors(validationErrors);
       setError("Please review the highlighted fields before continuing.");
+
+      const firstInvalidField = Object.keys(validationErrors)[0];
+      const invalidElement = document.getElementById(firstInvalidField);
+
+      if (invalidElement) {
+        invalidElement.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+
+        window.setTimeout(() => {
+          invalidElement.focus();
+        }, 250);
+      }
+
       return;
     }
 
@@ -336,7 +351,14 @@ function App() {
           onChange={handleChange}
           required
           aria-invalid={Boolean(fieldErrors[field.name])}
-          aria-describedby={`${field.name}-help`}
+          aria-describedby={
+            fieldErrors[field.name]
+              ? `${field.name}-help ${field.name}-error`
+              : `${field.name}-help`
+          }
+          aria-errormessage={
+            fieldErrors[field.name] ? `${field.name}-error` : undefined
+          }
         />
 
         {field.unit && <span>{field.unit}</span>}
@@ -347,7 +369,13 @@ function App() {
       </p>
 
       {fieldErrors[field.name] && (
-        <p className="field-error-message">{fieldErrors[field.name]}</p>
+        <p
+          className="field-error-message"
+          id={`${field.name}-error`}
+          role="alert"
+        >
+          {fieldErrors[field.name]}
+        </p>
       )}
     </div>
   );
