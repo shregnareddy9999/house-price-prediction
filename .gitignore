@@ -38,4 +38,4 @@ frontend/.vite/
 # OS files
 .DS_Store
 Thumbs.db
-outputs/house_price_model.joblib
+
